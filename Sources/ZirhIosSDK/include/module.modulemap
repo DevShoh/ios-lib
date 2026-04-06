@@ -1,0 +1,4 @@
+module ZirhIosSDKWrapper {
+    umbrella header "ZIRH_IOS.h"
+    export *
+}

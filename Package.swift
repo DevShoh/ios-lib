@@ -14,12 +14,12 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        // Binary Framework
+        // Binary framework
         .binaryTarget(
             name: "ZirhIosSDKBinary",
             path: "ZirhIosSDK.xcframework"
         ),
-        // Wrapper Target
+        // Swift wrapper + C headers
         .target(
             name: "ZirhIosSDKWrapper",
             dependencies: ["ZirhIosSDKBinary"],

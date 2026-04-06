@@ -1,7 +1,7 @@
 import Foundation
-import ZirhIosSDKWrapper // Modulemap orqali C funksiyalar
+import ZirhIosSDKWrapper  // Shu import bo‘lishi shart
 
-class ZirhSDK: @unchecked Sendable { // concurrency-safe qilish uchun
+final class ZirhSDK: @unchecked Sendable { // concurrency xatolarini oldini olish
     static let shared = ZirhSDK()
     private init() {}
 
@@ -28,8 +28,15 @@ class ZirhSDK: @unchecked Sendable { // concurrency-safe qilish uchun
     ) -> String? {
         let bytesCount = Int32(fileBytes?.count ?? 0)
         let resultPtr = ios_malumot_almashish(
-            url, method, body, headers, filePath,
-            fileBytes, bytesCount, fileName, fileField
+            url,
+            method,
+            body,
+            headers,
+            filePath,
+            fileBytes,
+            bytesCount,
+            fileName,
+            fileField
         )
         guard let ptr = resultPtr else { return nil }
         let response = String(cString: ptr)

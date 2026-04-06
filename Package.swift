@@ -3,31 +3,36 @@ import PackageDescription
 
 let package = Package(
     name: "ZirhIosSDK",
+    
     platforms: [
-        .iOS(.v13) // SDK ishlaydigan eng minimal iOS versiyasini belgilang
+        .iOS(.v13)
     ],
+    
     products: [
         .library(
             name: "ZirhIosSDK",
             targets: ["ZirhIosSDKWrapper"]
         ),
     ],
-    dependencies: [],
+    
     targets: [
-        // 1. Binary Framework (.xcframework)
+        
+        // 🔹 1. Binary Target (.xcframework)
         .binaryTarget(
             name: "ZirhIosSDKBinary",
             path: "ZirhIosSDK.xcframework"
         ),
         
-        // 2. Wrapper Target
-        // Bu target binary frameworkni loyihaga bog'lab beradi
+        // 🔹 2. Wrapper Target (Swift layer)
         .target(
             name: "ZirhIosSDKWrapper",
             dependencies: [
                 .target(name: "ZirhIosSDKBinary")
             ],
-            path: "Sources/ZirhIosSDK"
+            path: "Sources/ZirhIosSDK",
+            
+            // 🔥 ENG MUHIM QATOR
+            publicHeadersPath: "include"
         )
     ]
 )

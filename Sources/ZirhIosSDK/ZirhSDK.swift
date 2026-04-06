@@ -1,4 +1,4 @@
-
+import ZirhIosSDKWrapper
 import Foundation
 
 class ZirhSDK {

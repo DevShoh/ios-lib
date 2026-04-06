@@ -1,7 +1,7 @@
 import Foundation
 import ZirhIosSDKWrapper // Modulemap orqali C funksiyalar
 
-class ZirhSDK: @unchecked Sendable { 
+class ZirhSDK: @unchecked Sendable { // concurrency-safe qilish uchun
     static let shared = ZirhSDK()
     private init() {}
 

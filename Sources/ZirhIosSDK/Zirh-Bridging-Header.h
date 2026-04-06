@@ -1,6 +1,22 @@
-#ifndef Zirh_Bridging_Header_h
-#define Zirh_Bridging_Header_h
+#ifndef ZIRH_IOS_H
+#define ZIRH_IOS_H
 
-#include "zirh_ios.h"
+#include <stdint.h>
 
-#endif /* Zirh_Bridging_Header_h */
+// Mana bu qatorlar framework ichidagi faylda qanday bo'lsa, shunday tursin:
+void zirh_ios_boshlash(const char* keyPath, const char* dataPath);
+char* ios_malumot_olish(const char* path);
+void ios_xotirani_tozalash(void* ptr);
+char* ios_malumot_almashish(
+    const char* url,
+    const char* method,
+    const char* body,
+    const char* headers,
+    const char* filePath,
+    const uint8_t* fileBytes,
+    int32_t bytesCount,
+    const char* fileName,
+    const char* fileField
+);
+
+#endif
